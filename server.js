@@ -40,6 +40,10 @@ server.post("/create-pdf", async (req, res) => {
 		const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
 
 		// Add a blank page to the document
+		/*
+		- page.getSize() returns an object containing the width and height of the page.
+		- For a Letter-sized page, width will be 612 points (8.5 inches × 72 points per inch).
+		- height will be 792 points (11 inches × 72 points per inch). */
 		const page = pdfDoc.addPage();
 
 		// Get the width and height of the page
@@ -98,7 +102,7 @@ server.get("/get-pdf/:id", async (req, res) => {
 		res.setHeader("Content-Disposition", `inline; filename=${file.name}`);
 
 		// Send the PDF data as binary
-		res.send(file.data);
+		res.send(Buffer.from(file.data));
 	} catch (error) {
 		console.error("Error fetching the PDF:", error);
 		res.status(500).json({ error: "Internal server error" });

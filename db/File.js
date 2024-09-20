@@ -15,7 +15,7 @@ const File = (db) => {
 				allowNull: false, // You can adjust this based on your needs
 			},
 			data: {
-				type: DataTypes.BLOB("long"), // Store PDF as binary data (blob)
+				type: "BYTEA", // Store PDF as binary data (blob)
 				allowNull: false,
 			},
 		},
