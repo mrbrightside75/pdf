@@ -2,7 +2,7 @@
 import { DataTypes } from "sequelize";
 
 const User = (db) => {
-	return db.define("case", {
+	return db.define("User", {
 		id: {
 			type: DataTypes.INTEGER,
 			primaryKey: true,
