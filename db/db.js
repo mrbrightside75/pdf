@@ -23,7 +23,7 @@ const connectToDB = async () => {
 		await db.authenticate();
 		console.log("Connected to the DB");
 		// Sync the database
-		await db.sync({ alter: true }); // Adjust with { alter: true } if needed
+		await db.sync(); // Adjust with { alter: true } if needed
 	} catch (error) {
 		console.error(error);
 		console.error("DB ISSUE! EVERYONE PANIC!");
